@@ -1,9 +1,10 @@
+require('dotenv').config()
 const express = require('express')
 const querystring = require('querystring');
 const request = require('request')
 
 const external_api = 'https://api.themoviedb.org/3'
-const api_key = 'f083e98b573c9bca9dca52e1113df4b9'
+const api_key = process.env.API_KEY
 
 const app = express()
 
