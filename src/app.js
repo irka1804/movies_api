@@ -10,8 +10,9 @@ const app = express()
 
 app.get('/genres', (req, res) => {
     request.get(
-        `${external_api}/genre/movie/list?api_key=${api_key}`, 
+        `${external_api}/genre/movie/list?api_key=${api_key}&${querystring.stringify(req.query)}`, 
         (err, response, body) => {
+            res.set('Access-Control-Allow-Origin', 'http://localhost:3000')
             if (err)
                 return res.status(500).send({ message: err })
 
@@ -25,6 +26,7 @@ app.get('/movies', (req, res) => {
         `${external_api}/discover/movie?api_key=${api_key}&${querystring.stringify(req.query)}`,
 
         (err, response, body) => {
+            res.set('Access-Control-Allow-Origin', 'http://localhost:3000')
             if (err)
                 return res.status(500).send({ message: err })
 
