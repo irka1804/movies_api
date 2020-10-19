@@ -11,4 +11,7 @@ export class Genre {
 
     @ManyToOne(() => User, user => user.genres)
     user: User
+
+    @Column({ default: false })
+    active: boolean = false
 }

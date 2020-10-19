@@ -11,4 +11,7 @@ export class Movie {
 
     @ManyToOne(() => User, user => user.movies)
     user: User
+
+    @Column({ default: false })
+    watched: boolean = false
 }
